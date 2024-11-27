@@ -110,25 +110,33 @@ Use ferramentas como **Postman**, **cURL** ou um navegador para testar os endpoi
      ```json
      {
        "name": "Paris",
-       "location": "França",
+       "location": "France",
        "description": "Cidade Luz"
      }
      ```
 
 2. **Listar destinos:**
    - **Endpoint:** `GET /api/destinations`
+  
+3. **Buscar um destino por id:**
+   - **Endpoint:** `GET /api/destinations/{id}`
 
-3. **Buscar destino por nome:**
+4. **Buscar destino por nome:**
    - **Endpoint:** `GET /api/destinations/search/name`
    - **Query Param:** `name`
    - **Exemplo:** `/api/destinations/search/name?name=Paris`
 
-4. **Avaliar um destino:**
+5. **Buscar destino por localização:**
+   - **Endpoint:** `GET /api/destinations/search/location`
+   - **Query Param:** `location`
+   - **Exemplo:** `/api/destinations/search/location?location=France`
+
+6. **Avaliar um destino:**
    - **Endpoint:** `PATCH /api/destinations/{id}/rate`
    - **Query Param:** `grade`
    - **Exemplo:** `/api/destinations/1/rate?grade=4.5`
 
-5. **Excluir um destino:**
+7. **Excluir um destino:**
    - **Endpoint:** `DELETE /api/destinations/{id}`
 
 ---
