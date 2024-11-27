@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "5e1ef641-4839-4893-8cb5-a6e78025eeb6",
+		"name": "api-agencia-viagem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31435943"
+	},
+	"item": [
+		{
+			"name": "findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/destinations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"destinations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Home\",\n    \"location\": \"Tubarão\",\n    \"description\": \"That is my house\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/destinations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"destinations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/destinations/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"destinations",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/destinations/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"destinations",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rate",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/destinations/3/rate?grade=10",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"destinations",
+						"3",
+						"rate"
+					],
+					"query": [
+						{
+							"key": "grade",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchByLocation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/destinations/search/location?location=Tubarã",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"destinations",
+						"search",
+						"location"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "Tubarã"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchByName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/destinations/search/name?name=H",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"destinations",
+						"search",
+						"name"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "H"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
