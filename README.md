@@ -22,7 +22,7 @@ Certifique-se de ter os seguintes softwares instalados em sua máquina:
 Clone o repositório para sua máquina local:
 
 ```bash
-git clone https://github.com/seu-repositorio/api-agencia-viagem.git
+git clone https://github.com/ismaelsilvat/api-agencia-viagem
 cd api-agencia-viagem
 ```
 
