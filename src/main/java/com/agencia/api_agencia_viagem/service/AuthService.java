@@ -1,7 +1,5 @@
 package com.agencia.api_agencia_viagem.service;
 
-import com.agencia.api_agencia_viagem.model.Role;
-import com.agencia.api_agencia_viagem.model.User;
 import com.agencia.api_agencia_viagem.repository.RoleRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,10 +8,10 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Set;
+import com.agencia.api_agencia_viagem.security.JwtUtil;
 
 @Service
 public class AuthService {
@@ -37,7 +35,11 @@ public class AuthService {
             );
 
             if (authentication.isAuthenticated()) {
-                return "Authenticated successfully";
+                UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+
+                JwtUtil jwtUtil = new JwtUtil();
+
+                return jwtUtil.generateToken(userDetails.getUsername());
             } else {
                 throw new RuntimeException("Authentication failed");
             }
@@ -45,20 +47,5 @@ public class AuthService {
             log.error(e.getMessage());
             throw new RuntimeException("Invalid username or password");
         }
-    }
-
-    public User register(String username, String password) {
-        if (userService.findByUsername(username).isPresent()) {
-            throw new RuntimeException("Username already exists");
-        }
-
-        Role defaultRole = roleRepository.findByName("ROLE_USER")
-                .orElseThrow(() -> new RuntimeException("Default role not found"));
-
-        User user = new User();
-        user.setUsername(username);
-        user.setRoles(Set.of(defaultRole));
-        user.setPassword(passwordEncoder.encode(password));
-        return userService.save(user);
     }
 }

@@ -1,8 +1,6 @@
 package com.agencia.api_agencia_viagem.controller;
 
 import com.agencia.api_agencia_viagem.dto.Login;
-import com.agencia.api_agencia_viagem.dto.Register;
-import com.agencia.api_agencia_viagem.model.User;
 import com.agencia.api_agencia_viagem.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +23,5 @@ public class AuthController {
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
-    }
-
-    @PostMapping("/register")
-    public ResponseEntity<User> register(@Valid @RequestBody Register register) {
-        User user = authService.register(register.getUsername(), register.getPassword());
-        return ResponseEntity.ok(user);
     }
 }

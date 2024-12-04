@@ -25,7 +25,7 @@ public class MyUserDetailsService implements UserDetailsService {
             user.getUsername(),
             user.getPassword(),
             user.getRoles().stream()
-                    .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getName()))
+                    .map(role -> new SimpleGrantedAuthority(role.getName()))
                     .collect(Collectors.toList())
      );
     }
